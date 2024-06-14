@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        p.intro-text {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        p.footer-text {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Produtos</h1>
+    <p class="intro-text">
+        Selecione os produtos que deseja ter mais informações.
+    </p>
+    <form method="post" action="/productsSelection">
+        
+        {% for product, details in products.items() %}
+            <h2>Produto: {{ product }}</h2>
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Selecionar</th>
+                </tr>
+                {% for item in details %}
+                <tr>
+                    <td><a href="{{ item.link }}">{{ item.name }}</a></td>
+                    <td>{{ item.price }}</td>
+                    <td><input type="checkbox" name="selected_products" value="{{ item.name }},{{ item.price }},{{ item.link }}"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+        <button type="submit">Escolher</button>
+    </form>
+    <div class="button-container">
+        <button onclick="location.href='/'">Voltar à Página Inicial</button>
+    </div>
+</body>
+</html>

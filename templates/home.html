@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grocery Helper</title>
+        <style>
+            .container {
+                text-align: center;
+                margin-top: 100px;
+            }
+            .textbox {
+                width: 300px;
+                height: 30px;
+                margin-bottom: 10px;
+            }
+            .submit-btn {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Grocery Helper</h1>
+            <form
+                action="/products"
+                method="POST"
+            >
+                <input
+                    type="text"
+                    name="product"
+                    class="textbox"
+                    placeholder="Enter a text"
+                />
+                <br />
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Submit
+                </button>
+            </form>
+        </div>
+    </body>
+</html>

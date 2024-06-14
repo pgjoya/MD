@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta sobre os Produtos Selecionados</title>
+</head>
+<body>
+    <h1>Pergunta sobre os Produtos Selecionados</h1>
+    <form method="post" action="/submitQuestion">
+        <p>Escreva sua pergunta sobre os produtos selecionados:</p>
+        <textarea name="question" rows="5" cols="40"></textarea><br><br>
+        {% for product in selected_products %}
+            <input type="hidden" name="selected_products" value="{{ product.name }},{{ product.price }},{{ product.link }},{{ product.details }}">
+        {% endfor %}
+        <button type="submit">Submeter pedido de informação</button>
+    </form>
+    <button onclick="location.href='/'">Voltar à Página Inicial</button>
+</body>
+</html>

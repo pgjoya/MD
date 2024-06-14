@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta à Pergunta</title>
+</head>
+<body>
+    <h1>Resposta à Pergunta</h1>
+    <p><strong>Pergunta:</strong> {{ question }}</p>
+    <p><strong>Resposta:</strong> {{ answer }}</p>
+    <h2>Produtos Selecionados:</h2>
+    <ul>
+        {% for product in selected_products %}
+            <li>{{ product }}</li>
+        {% endfor %}
+    </ul>
+    <button onclick="location.href='/'">Voltar à Página Inicial</button>
+    
+    <form method="post" action="/productsSelection">
+        {% for product in selected_products %}
+            <input type="hidden" name="selected_products" value="{{ product }}">
+        {% endfor %}
+        <button type="submit">Fazer mais uma pergunta</button>
+    </form>
+</body>
+</html>
